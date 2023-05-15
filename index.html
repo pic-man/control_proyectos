@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/estilos.css">
-    <title>Control de Proyectos</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/logo-universidad.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>Control de Proyectos</title>
 </head>
- <body class="text-center">
-    
-<main class="form-signin login card ">
-   <form action="" method="post">
-    <h1 class="h3 mb-3 fw-normal">Control de Proyectos</h1>
-
-    <div class="form-floating">
-      <input type="text" name="cedula" class="form-control" id="cedula" placeholder="">
-      <label for="cedula">Cedula</label>
+<body>
+  <div class="container">
+    <div class="text-center">
+      <img src="img/logo-universidad.png" class="mt-5" width="150px">
+      <h3 class="mt-2">Login</h3>
+      <form id="formIniciar">
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo Electronico</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresar Correo">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Clave</label>
+          <input type="password" class="form-control" id="password" placeholder="Ingresar Clave">
+        </div>
+        <div class="mb-3">
+          <input type="button" class="btn btn-success form-control" value="Ingresar">
+        </div>
+        <div class="mb-3">
+          <a href="registro.html" class="btn btn-primary form-control">Registarse</a>
+        </div>
+      </form>
     </div>
-    
-    <div class="form-floating">
-      <input type="password" name="clave" class="form-control" placeholder="">
-      <label for="floatingPassword">Clave</label>
-    </div>
-
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
-  </form>
-  <p class="mt-5">No estas registrado? <a href="registro.html">registrate</a></p>
-</main>
-    <script src="./js/bootstrap.bundle.js"></script>
+  </div>
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/sweetalert2.all.min.js"></script>
 </body>
 </html>

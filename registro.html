@@ -8,46 +8,47 @@
     <link rel="stylesheet" href="./css/estilos.css">
     <title>Control de Proyectos</title>
 </head>
- <body class="text-center">
-    
-<main class="form-signin registro card">
-   <form action="" method="post">
-    <h1 class="h3 mb-3 fw-normal">Registro de Estudiante</h1>
-   <div class="row">
-    <div class="col-12 col-lg-6 form-floating">
-      <input type="text" name="cedula" class="form-control" id="floatingInput" placeholder="">
-      <label for="floatingInput">Cedula</label>
-    </div>
-
-    <div class="col-12 col-lg-6 form-floating">
-      <input type="text" name="nombres" class="form-control" id="floatingInput" placeholder="">
-      <label for="floatingInput">Nombres y Apellidos</label>
-    </div>
-
-    <div class="col-12 col-lg-6 form-floating">
-      <input type="text" name="telefono" class="form-control" id="floatingInput" placeholder="">
-      <label for="floatingInput">Telefono</label>
-    </div>
-
-    <div class="col-12 col-lg-6 form-floating">
-      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="">
-      <label for="floatingInput">Correo Electronico</label>
-    </div>
-    
-    <div class="col-12 col-lg-6 form-floating">
-      <input type="password" name="clave" class="form-control" id="floatingPassword" placeholder="">
-      <label for="floatingPassword">Clave</label>
-    </div>
-
-    <div class="col-12 col-lg-6 form-floating">
-      <input type="password" name="confirmarClave" class="form-control" id="floatingPassword" placeholder="">
-      <label for="floatingPassword">Confirmar Clave</label>
-    </div>
+ <body>
+  <div class="container text-center">
+      <img src="img/logo-universidad.png" class="mt-5" width="150px">
+      <h3 class="mt-2">Registro de Estudiante</h3>
+     <center> 
+      <form id="formIniciar" class="row border">
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="cedula" class="form-label">Cedula</label>
+          <input type="text" class="form-control" id="cedula" placeholder="Ingresar Cedula">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="nombres" class="form-label">Nombres y Apellidos</label>
+          <input type="text" class="form-control" id="nombres" placeholder="Ingresar Nombre">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="telefono" class="form-label">Telefono</label>
+          <input type="text" class="form-control" id="telefono" placeholder="Ingresar Telefono">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="correo" class="form-label">Correo Electronico</label>
+          <input type="email" class="form-control" id="correo" placeholder="Ingresar Correo">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="password" class="form-label">Clave</label>
+          <input type="password" class="form-control" id="password" placeholder="Ingresar Clave">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="cPassword" class="form-label">Confirmar Clave</label>
+          <input type="password" class="form-control" id="cPassword" placeholder="Confirmar Clave">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <input type="button" class="btn btn-success form-control" onclick="registrarUsuario()" value="Registrarse">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <a href="index.html" class="btn btn-primary form-control">Iniciar Sesion</a>
+        </div>
+      </form>
+    </center> 
   </div>
-    <button class="w-50 btn btn-lg btn-primary" type="submit">Registar</button>
-  </form>
-  <p class="mt-5"><a href="index.html">Volver</a></p>
-</main>
-    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script src="js/appLogin.js"></script>
 </body>
 </html>
