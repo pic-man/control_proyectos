@@ -1,4 +1,11 @@
 form{
-    width:400px;
+    /* width:300px; */
+    max-width: 980px;
     margin:auto;
+}
+.integrantes{
+    max-width: 980px;
+}
+select{
+    text-align-last: center;
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo-universidad.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <title>Control de Proyectos</title>
+</head>
+ <body onload="verificarsesion();">
+  <div class="container text-center">
+      <img src="img/logo-universidad.png" class="mt-5" width="150px">
+      <h3 class="mt-2">Registro de Estudiante</h3>
+     <center> 
+      <form id="formRegistrar" method="post" class="row border">
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="cedula" class="form-label">Cedula</label>
+          <input type="text" class="form-control" id="cedula" placeholder="Ingresar Cedula">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="nombres" class="form-label">Nombres y Apellidos</label>
+          <input type="text" class="form-control" id="nombres" placeholder="Ingresar Nombre">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="telefono" class="form-label">Telefono</label>
+          <input type="text" class="form-control" id="telefono" maxlength="11" placeholder="Ingresar Telefono">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="correo" class="form-label">Correo Electronico</label>
+          <input type="email" class="form-control" id="correo" placeholder="Ingresar Correo">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="password" class="form-label">Clave</label>
+          <input type="password" class="form-control" id="password" placeholder="Ingresar Clave">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <label for="cPassword" class="form-label">Confirmar Clave</label>
+          <input type="password" class="form-control" id="cPassword" placeholder="Confirmar Clave">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <input type="button" class="btn btn-success form-control" onclick="registrarUsuario()" value="Registrarse">
+        </div>
+        <div class="mb-3 col-12 col-lg-6">
+          <a href="index.html" class="btn btn-primary form-control">Iniciar Sesion</a>
+        </div>
+      </form>
+    </center> 
+  </div>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/appLogin.js"></script>
+</body>
+</html>
