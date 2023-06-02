@@ -65,10 +65,10 @@ if (isset($IngresarC))
     <link rel="stylesheet" href="iconos/font/bootstrap-icons.css">
     <title>Control de Proyectos</title>
     <script>
-        function eliminarIntegrante(id_to_delete)
+        function eliminarInstitucion(id_to_delete)
         {var confirmation=confirm('¿Está seguro de que desea retirar la organizacion de este proyecto?');
          if(confirmation)
-            {window.location.href='eliminarIntegrante.php?integrante='+id_to_delete+'&proyecto=<?php echo $id;?>&pnf=<?php echo $pnf;?>&lapso=<?php echo $lapso;?>';}
+            {window.location.href='eliminarInstitucion.php?proyecto='+id_to_delete;}
         }
     </script>
 </head>
@@ -121,7 +121,7 @@ if (isset($IngresarC))
               if($row=mysqli_fetch_array($consulta)){?>
               <tr><td><?php echo $row['rif'];?></td><td><?php echo $row['nombre'];?></td>    
               <td>
-                 <a href="#" class="btn btn-danger" onclick="eliminarInstitucion(<?php echo $row['id'];?>)">
+                 <a href="#" class="btn btn-danger" onclick="eliminarInstitucion(<?php echo $id;?>)">
                  <i class="bi bi-trash p-1"></i></a>
               </td>
         <?php }?> 

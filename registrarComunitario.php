@@ -1,5 +1,5 @@
 <?php session_start();if($_SESSION['access']!=true){header("location:index.php");}
-/* error_reporting (0); */
+error_reporting(0);
 date_default_timezone_set("America/caracas");
 function postBlock($postID) 
 {if(isset($_SESSION['postID'])) 
@@ -25,11 +25,11 @@ if (isset($IngresarC))
           else{if(!preg_match('/^[0-9]{5,15}$/i',$cedula)){$a="La cedula solo puede contener numeros";$error=2;}
                else{
                 include("php/config.php");
-                $result=mysqli_query($link,"SELECT * FROM usuario WHERE cedula='".$cedula."' and rol=9");
+                $result=mysqli_query($link,"SELECT * FROM comunitario WHERE cedula='".$cedula."'");
                 if(!$row=mysqli_fetch_array($result))
                    {$a="La cedula NO esta registrada en el sistema";$error=3;}
                 else
-                   {$us=$row['id'];
+                   {$comunitario=$row['id'];
                     }   
                }
           }
@@ -40,7 +40,7 @@ if (isset($IngresarC))
       include("php/config.php");
       $sql="update proyecto set comunitario=".$comunitario." where id='$id'";   
       $consulta=mysqli_query($link,$sql)or die(mysqli_error($link));
-      header('Location:registrarOrganizacion.php'); 
+      header('Location:inicio.php?xd=2'); 
        }
       }   
      }  include("php/config.php");
@@ -114,13 +114,17 @@ if (isset($IngresarC))
         <?php include("php/config.php");
               $consulta=mysqli_query($link,"select id,cedula,grado,nombres from comunitario where id in 
               (select comunitario from proyecto where id=".$id.")");
-              while($row=mysqli_fetch_array($consulta)){?>
-              <tr><td><?php echo $row['cedula'];?></td><td><?php echo $row['grado']." ".$row['nombres'];?></td>    
+              while($row=mysqli_fetch_array($consulta)){
+                $consulta2=mysqli_query($link,"select descripcion from grado where id=".$row['grado']."");
+              if($row2=mysqli_fetch_array($consulta2)){
+                ?>
+              <tr><td><?php echo $row['cedula'];?></td><td><?php echo $row2['descripcion']." ".$row['nombres'];?></td>    
               <td>
-                 <a href="#" class="btn btn-danger" onclick="eliminarComunitario(<?php echo $row['id'];?>)">
+                 <a href="#" class="btn btn-danger" onclick="eliminarComunitario(<?php echo $id;?>)">
                  <i class="bi bi-trash p-1"></i></a>
               </td>
-        <?php }?> 
+        <?php }
+             }?> 
        </table>
         </div>
     </center> 

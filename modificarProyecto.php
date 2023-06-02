@@ -60,7 +60,7 @@ if (isset($Ingresar))
         where id='$id'";   
         $consulta=mysqli_query($link,$sql)or die(mysqli_error($link));
           
-        header('Location:modificarIntegrantes.php');
+        header('Location:registrarIntegrantes.php');
        }
       }   
      }else{

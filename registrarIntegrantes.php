@@ -130,7 +130,7 @@ if (isset($IngresarC))
               while($row=mysqli_fetch_array($consulta)){?>
               <tr><td><?php echo $row['cedula'];?></td><td><?php echo $row['nombres'];?></td>    
               <td>
-              <?php if(mysqli_num_rows($consulta)>1){?>  
+              <?php if($_SESSION['usuario']!=$row['id']){?>  
                  <a href="#" class="btn btn-danger" onclick="eliminarIntegrante(<?php echo $row['id'];?>)">
                  <i class="bi bi-trash p-1"></i></a>
               <?php }?>

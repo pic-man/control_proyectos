@@ -1,4 +1,5 @@
-<?php session_start();if($_SESSION['access']!=true){header("location:index.php");}?>
+<?php session_start();if($_SESSION['access']!=true){header("location:index.php");}
+error_reporting(0);?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,12 @@
 <body>
 <?php if($xd==1){$xd=0;?>
       <script>Swal.fire('Proyecto eliminado satisfactoriamente','','success')
+              setTimeout(()=>{
+              window.location.href="index.php";
+              },2000)
+    </script>
+  <?php }elseif($xd==2){$xd=0;?>
+    <script>Swal.fire('Proyecto creado satisfactoriamente','','success')
               setTimeout(()=>{
               window.location.href="index.php";
               },2000)
@@ -73,9 +80,11 @@
                         if($row2=mysqli_fetch_array($consulta2)){echo "<b>PNF:</b>&nbsp;".$row2['descripcion'];}
                         ?></td>
                         <td><b>Docente Asesor</b><br><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['asesor']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?>
+                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?>
                             <br><b>Representante Institucional</b><br><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['institucional']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?>     
+                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?>
+                            <br><b>Representante Comunitario</b><br><?php $consulta2=mysqli_query($link,"select nombres from comunitario where id=".$row['comunitario']."");
+                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?>           
                         </td>
                         <td>
                         <?php $consulta2=mysqli_query($link,"select nombres from usuario where id in(select usuario from proyus where proyecto=".$row['id'].")");
@@ -105,17 +114,17 @@
 
                         <thead class="table-dark"><tr><td width="100%" colspan="2">Docente Asesor</td></tr></thead>
                         <tbody><tr><td width="100%" colspan="2"><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['asesor']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?></td></tr>
+                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?></td></tr>
                         </tbody>
 
                         <thead class="table-dark"><tr><td width="100%" colspan="2">Representante Institucional</td></tr></thead>
                         <tbody><tr><td width="100%" colspan="2"><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['institucional']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?></td></tr>
+                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?></td></tr>
                         </tbody>
                         
                         <thead class="table-dark"><tr><td width="100%" colspan="2">Representante Comunitario</td></tr></thead>
-                        <tbody><tr><td width="100%" colspan="2"><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['comunitario']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?></td></tr>
+                        <tbody><tr><td width="100%" colspan="2"><?php $consulta2=mysqli_query($link,"select nombres from comunitario where id=".$row['comunitario']."");
+                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?></td></tr>
                         </tbody>
 
                         <thead class="table-dark"><tr><td width="100%" colspan="2">Integrantes</td></tr></thead>
