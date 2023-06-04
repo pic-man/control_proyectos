@@ -84,7 +84,7 @@ if (isset($Ingresar))
         include("php/config.php");
         $sql="update proyecto set comunitario=".$comunitario." where id='$id'";   
         $consulta=mysqli_query($link,$sql)or die(mysqli_error($link));
-        header('Location:registrarOrganizacion.php'); 
+        header('Location:registrarComunitario.php'); 
         }
        }
       }   

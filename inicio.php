@@ -80,11 +80,11 @@ error_reporting(0);?>
                         if($row2=mysqli_fetch_array($consulta2)){echo "<b>PNF:</b>&nbsp;".$row2['descripcion'];}
                         ?></td>
                         <td><b>Docente Asesor</b><br><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['asesor']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?>
+                                  if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?>
                             <br><b>Representante Institucional</b><br><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['institucional']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?>
+                                  if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?>
                             <br><b>Representante Comunitario</b><br><?php $consulta2=mysqli_query($link,"select nombres from comunitario where id=".$row['comunitario']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?>           
+                                  if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?>           
                         </td>
                         <td>
                         <?php $consulta2=mysqli_query($link,"select nombres from usuario where id in(select usuario from proyus where proyecto=".$row['id'].")");
@@ -113,23 +113,27 @@ error_reporting(0);?>
                         </tbody>
 
                         <thead class="table-dark"><tr><td width="100%" colspan="2">Docente Asesor</td></tr></thead>
-                        <tbody><tr><td width="100%" colspan="2"><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['asesor']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?></td></tr>
+                        <tbody><tr><td width="100%" colspan="2">
+                        <?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['asesor']."");
+                              if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?></td></tr>
                         </tbody>
 
                         <thead class="table-dark"><tr><td width="100%" colspan="2">Representante Institucional</td></tr></thead>
-                        <tbody><tr><td width="100%" colspan="2"><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['institucional']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?></td></tr>
+                        <tbody><tr><td width="100%" colspan="2">
+                        <?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['institucional']."");
+                              if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?></td></tr>
                         </tbody>
                         
                         <thead class="table-dark"><tr><td width="100%" colspan="2">Representante Comunitario</td></tr></thead>
-                        <tbody><tr><td width="100%" colspan="2"><?php $consulta2=mysqli_query($link,"select nombres from comunitario where id=".$row['comunitario']."");
-                                  if($row2=mysqli_fetch_array($consulta2)){echo utf8_encode($row2['nombres']);}?></td></tr>
+                        <tbody><tr><td width="100%" colspan="2">
+                        <?php $consulta2=mysqli_query($link,"select nombres from comunitario where id=".$row['comunitario']."");
+                              if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?></td></tr>
                         </tbody>
 
                         <thead class="table-dark"><tr><td width="100%" colspan="2">Integrantes</td></tr></thead>
-                        <tbody><tr><td width="100%" colspan="2"><?php $consulta2=mysqli_query($link,"select cedula,nombres from usuario where id in(select usuario from proyus where proyecto=".$row['id'].")");
-                                  while($row2=mysqli_fetch_array($consulta2)){echo $row2['cedula']." - ".$row2['nombres']."<hr>";}?></td></tr>
+                        <tbody><tr><td width="100%" colspan="2">
+                        <?php $consulta2=mysqli_query($link,"select cedula,nombres from usuario where id in(select usuario from proyus where proyecto=".$row['id'].")");
+                              while($row2=mysqli_fetch_array($consulta2)){echo $row2['cedula']." - ".$row2['nombres']."<hr>";}?></td></tr>
                         </tbody>
                         
                     </table>

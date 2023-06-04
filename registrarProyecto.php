@@ -149,8 +149,8 @@ if (isset($Ingresar))
           <?php include("php/config.php");
                 $consulta=mysqli_query($link,"select * from usuario where rol<2 order by nombres asc");
                 while ($row=mysqli_fetch_array($consulta)){
-                    if($row['id']==$asesor){echo "<option value='".$row['id']."' selected>".utf8_encode($row['nombres'])."</option>";}
-                    else{echo "<option value='".$row['id']."'>".utf8_encode($row['nombres'])."</option>";}
+                    if($row['id']==$asesor){echo "<option value='".$row['id']."' selected>".$row['nombres']."</option>";}
+                    else{echo "<option value='".$row['id']."'>".$row['nombres']."</option>";}
                 }?>
           </select>
           <?php if($e!=""){?><div class="alert alert-danger" role="alert"><?php echo $e;?></div><?php }?>
@@ -162,8 +162,8 @@ if (isset($Ingresar))
           <?php include("php/config.php");
                 $consulta=mysqli_query($link,"select * from usuario where rol<2 order by nombres asc");
                 while ($row=mysqli_fetch_array($consulta)){
-                  if($row['id']==$institucional){echo "<option value='".$row['id']."' selected>".utf8_encode($row['nombres'])."</option>";}
-                  else{echo "<option value='".$row['id']."'>".utf8_encode($row['nombres'])."</option>";}
+                  if($row['id']==$institucional){echo "<option value='".$row['id']."' selected>".$row['nombres']."</option>";}
+                  else{echo "<option value='".$row['id']."'>".$row['nombres']."</option>";}
                 }?>
           </select>
           <?php if($f!=""){?><div class="alert alert-danger" role="alert"><?php echo $f;?></div><?php }?>
