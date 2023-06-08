@@ -41,7 +41,7 @@ error_reporting(0);?>
        {$lapso=$row['id'];}
 
     if($_SESSION['rol']<9){
-
+      $sql="select * from proyecto where id in (select proyecto from proyus where lapso=".$lapso.")";
     }
     else{
         $sql="select * from proyecto where id in (select proyecto from proyus where usuario=".$usuario." and lapso=".$lapso.")";
@@ -78,6 +78,8 @@ error_reporting(0);?>
                         <td><?php echo $row['titulo']."<br>";
                         $consulta2=mysqli_query($link,"select descripcion from pnf where id=".$row['pnf']."");
                         if($row2=mysqli_fetch_array($consulta2)){echo "<b>PNF:</b>&nbsp;".$row2['descripcion'];}
+                        $consulta3=mysqli_query($link,"select nombre from organizacion where id=".$row['organizacion']."") or die(mysqli_error($link));
+                        if($row3=mysqli_fetch_array($consulta3)){echo "<br><b>Organizacion:</b>&nbsp;".$row3['nombre'];}
                         ?></td>
                         <td><b>Docente Asesor</b><br><?php $consulta2=mysqli_query($link,"select nombres from usuario where id=".$row['asesor']."");
                                   if($row2=mysqli_fetch_array($consulta2)){echo $row2['nombres'];}?>
@@ -134,6 +136,18 @@ error_reporting(0);?>
                         <tbody><tr><td width="100%" colspan="2">
                         <?php $consulta2=mysqli_query($link,"select cedula,nombres from usuario where id in(select usuario from proyus where proyecto=".$row['id'].")");
                               while($row2=mysqli_fetch_array($consulta2)){echo $row2['cedula']." - ".$row2['nombres']."<hr>";}?></td></tr>
+                        <tr>
+                        <td colspan="3">
+                          <?php if($row['status']==0){?>  
+                            <a href="modificarProyecto.php"><button class="btn btn-primary"><i class="bi bi-pencil-square p-1"></i></button></a>&nbsp;&nbsp;
+                            <a href="#"  class="btn btn-danger" onclick="eliminarProyecto(<?php echo $row['id'];?>)">
+                            <i class="bi bi-trash p-1"></i></a></td>
+                          <?php }elseif($row['status']==1){?>
+                            <button class="btn btn-success"><i class="bi bi-search p-1"></i></button>
+                            <button class="btn btn-primary"><i class="bi bi-pencil-square p-1"></i></button>
+                          <?php }?>
+                        </td>  
+                        </tr>
                         </tbody>
                         
                     </table>

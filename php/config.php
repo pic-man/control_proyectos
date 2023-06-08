@@ -1,13 +1,13 @@
 <?php
-/* $server="localhost";
+$server="localhost";
 $user="root";
 $pass="anitalavalatina";
-$bd="upttmbi"; */
+$bd="upttmbi";
 
-$server="localhost";
+/* $server="localhost";
 $user="u655621137_dptoinformatic";
 $pass="0:fo@|&B";
-$bd="u655621137_upttmbi";
+$bd="u655621137_upttmbi"; */
 
 $link=mysqli_connect($server,$user,$pass,$bd);
 ?>
